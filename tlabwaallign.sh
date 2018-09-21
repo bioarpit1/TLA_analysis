@@ -6,6 +6,6 @@ cd /net/hawkins/vol1/arpit/sratoolkitout/sra/fastq/TLA_data_lieberlab/newdata_18
 
 
 bwa bwasw -b 7 /net/hawkins/vol1/scripts_files/mm10/mm10_bwa_index/mm10bwaidx ${file}.fq.gz > ${file}.sam
+samtools view -bS ${file}.sam > ${file}.bam
 samtools sort -O bam -o ${file}_sorted.bam -T {file}_temp ${file}_nonSorted.bam
-samtools sort -O bam -o ${file}_sorted.bam ${file}.bam 
 samtools index ${file}_sorted.bam
