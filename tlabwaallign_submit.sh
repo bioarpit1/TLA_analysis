@@ -1,0 +1,54 @@
+#$ -S /bin/bash
+
+# List samplenames no commas or quotes
+ids=(
+CL21_S1_R1_001_val_1
+CL21_S1_R2_001_val_2
+CL22_S2_R1_001_val_1
+CL22_S2_R2_001_val_2
+CL23_S3_R1_001_val_1
+CL23_S3_R2_001_val_2
+CL24_S4_R1_001_val_1
+CL24_S4_R2_001_val_2
+CL25_S5_R1_001_val_1
+CL25_S5_R2_001_val_2
+CL26_S6_R1_001_val_1
+CL26_S6_R2_001_val_2
+CL27_S7_R1_001_val_1
+CL27_S7_R2_001_val_2
+CL28_S8_R1_001_val_1
+CL28_S8_R2_001_val_2
+CL29_S9_R1_001_val_1
+CL29_S9_R2_001_val_2
+CL30_S10_R1_001_val_1
+CL30_S10_R2_001_val_2
+CL31_S11_R1_001_val_1
+CL31_S11_R2_001_val_2
+CL32_S12_R1_001_val_1
+CL32_S12_R2_001_val_2
+CL33_S13_R1_001_val_1
+CL33_S13_R2_001_val_2
+CL34_S14_R1_001_val_1
+CL34_S14_R2_001_val_2
+CL35_S15_R1_001_val_1
+CL35_S15_R2_001_val_2
+CL36_S16_R1_001_val_1
+CL36_S16_R2_001_val_2
+CL37_S17_R1_001_val_1
+CL37_S17_R2_001_val_2
+CL38_S18_R1_001_val_1
+CL38_S18_R2_001_val_2
+CL39_S19_R1_001_val_1
+CL39_S19_R2_001_val_2
+CL42_S20_R1_001_val_1
+CL42_S20_R2_001_val_2
+CL43_S21_R1_001_val_1
+CL43_S21_R2_001_val_2
+CL44_S22_R1_001_val_1
+CL44_S22_R2_001_val_2)
+
+
+# Loop through files, qsub trimming script for each one
+for i in ${ids[@]}; do
+	qsub -cwd -v file=${i} -N tlabwaallign_${i} tlabwaallign.sh
+done
